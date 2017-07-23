@@ -25,10 +25,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    overflow: 'hidden',
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
   yup: {
+    opacity: 0,
     position: 'absolute',
     padding: 20,
     top: viewport.height / 2 - 110,
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
     color: 'blue',
   },
   nope: {
+    opacity: 0,
     position: 'absolute',
     top: viewport.height / 2 - 110,
     padding: 20,
