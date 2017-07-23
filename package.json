@@ -1,5 +1,5 @@
 {
-  "name": "react-native-swipe-cards",
+  "name": "@wynk/react-native-swipe-cards",
   "version": "0.1.0",
   "description": "Swipe cards for stylishly passing & failing a card",
   "main": "SwipeCards.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meteor-factory/react-native-tinder-swipe-cards.git"
+    "url": "git+https://github.com/darraghmckay/react-native-tinder-swipe-cards"
   },
   "keywords": ["react-native", "tinder", "cards", "swipe"],
   "author": "meteor-factory",
