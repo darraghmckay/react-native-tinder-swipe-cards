@@ -101,7 +101,8 @@ export default class SwipeCards extends Component {
     renderCard: React.PropTypes.func,
     cardRemoved: React.PropTypes.func,
     dragY: React.PropTypes.bool,
-    smoothTransition: React.PropTypes.bool
+    smoothTransition: React.PropTypes.bool,
+    enableSwiping: React.PropTypes.bool.isRequired
   };
 
   static defaultProps = {
@@ -128,7 +129,8 @@ export default class SwipeCards extends Component {
     renderCard: (card) => null,
     style: styles.container,
     dragY: true,
-    smoothTransition: false
+    smoothTransition: false,
+    enableSwiping: true
   };
 
   constructor(props) {
@@ -468,7 +470,8 @@ export default class SwipeCards extends Component {
       return this.renderNoMoreCards();
     }
 
-    let {pan, enter} = this.state;
+    let { pan, enter } = this.state;
+    const { enableSwiping } = this.props;
     let [translateX, translateY] = [pan.x, pan.y];
 
     let rotate = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: ["-15deg", "0deg", "15deg"] });
@@ -477,8 +480,9 @@ export default class SwipeCards extends Component {
     let scale = enter;
 
     let animatedCardStyles = { transform: [{ translateX }, { translateY }, { rotate }, { scale }], opacity };
+    const panHandlers = enableSwiping ? this._panResponder.panHandlers : null
 
-    return <Animated.View key={"top"} style={[styles.card, animatedCardStyles]} {... this._panResponder.panHandlers}>
+    return <Animated.View key={"top"} style={[styles.card, animatedCardStyles]} {... panHandlers }>
       {this.props.renderCard(this.state.card)}
     </Animated.View>;
   }
